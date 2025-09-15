@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pedido de Desculpas</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      background: #ffe6eb;
+      font-family: Arial, sans-serif;
+      padding-top: 40px;
+      overflow: hidden; /* evita barra de rolagem quando o SIM foge */
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #d6336c;
+    }
+
+    .foto {
+      width: 250px;
+      margin-bottom: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    button {
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yesBtn {
+      background: #4caf50;
+      color: white;
+      position: absolute; /* pode se mover pela tela */
+      left: 50%;           /* posição inicial centralizada */
+      top: 70%;            /* posição inicial abaixo da imagem */
+      transform: translateX(-50%);
+    }
+
+    #noBtn {
+      background: #f44336;
+      color: white;
+      position: relative;  /* fixo */
+      z-index: 2;
+    }
+
+    .area-botoes {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>QUER TERMINAR COMIGO MESMO ?🥺</h1>
+
+  <!-- Imagem -->
+  <img src="https://i.redd.it/9fb4zjk73aw41.jpg" alt="Nós dois" class="foto">
+
+  <!-- Botões -->
+  <div class="area-botoes">
+    <button id="noBtn">NÃO</button>
+  </div>
+  <button id="yesBtn">SIM</button>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+
+    // Botão SIM foge quando passa o mouse
+    yesBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - yesBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - yesBtn.offsetHeight);
+      yesBtn.style.left = `${x}px`;
+      yesBtn.style.top = `${y}px`;
+    });
+
+    // Botão NÃO redireciona pro YouTube
+    noBtn.addEventListener("click", () => {
+      window.location.href = "https://www.youtube.com/watch?v=ykB-bAD0zeI&list=RDQMMLomOq2YlZI&start_radio=1";
+    });
+  </script>
+</body>
+</html>
